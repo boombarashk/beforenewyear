@@ -21,7 +21,7 @@ const grammar = (count, unitL) => {
         switch (unitL) {
             case 'd': if (check1(count)) {
                 units = 'день'
-            } else units = count < 5 ? 'дня' : 'дней'
+            } else units = check2(count) ? 'дня' : 'дней'
                 break;
             case 'h': if (check1(count)) {
                 units = 'час'
