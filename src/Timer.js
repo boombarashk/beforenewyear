@@ -15,7 +15,7 @@ const grammar = (count, unitL) => {
         }
         const check2 = (count) => {
             const rest10 = count % 10
-            return rest10 >= 2 && rest10 < 5 && count !== 12 && count !== 13 && count !== 14
+            return rest10 >= 2 && rest10 < 5 && !([12,13,14].includes(count))
         }
         let units = ''
         switch (unitL) {
@@ -23,9 +23,9 @@ const grammar = (count, unitL) => {
                 units = 'день'
             } else units = check2(count) ? 'дня' : 'дней'
                 break;
-            case 'h': if (check1(count)) {
-                units = 'час'
-            } else units = count < 5 ? 'часа' : 'часов'
+            case 'h': units = 'часов';
+                if ([2,3,4, 22, 23].includes(count)) { units = 'часа' } else
+                if ([1,21].includes(count)) { units = 'час' }
                 break;
             case 'm': units = 'минут';
                 if (check1(count)) { units += 'a' }
