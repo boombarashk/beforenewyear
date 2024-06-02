@@ -11,7 +11,7 @@ const grammar = (count, unitL) => {
     let msg = ''
     if (count > 0 && unitL !== 's') {
         const check1 = (count) => {
-            return count % 10 === 1 && count !== 11
+            return count % 10 === 1 && count % 100 !== 11
         }
         const check2 = (count) => {
             const rest10 = count % 10
